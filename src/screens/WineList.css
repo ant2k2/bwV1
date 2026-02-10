@@ -1,0 +1,241 @@
+.wine-list-container {
+  min-height: 100vh;
+  background: var(--bg-white);
+  padding-bottom: 80px;
+}
+
+.progress-info {
+  margin-top: 16px;
+}
+
+.progress-text {
+  font-size: 13px;
+  font-weight: 300;
+  opacity: 0.9;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+.wines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.wine-card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.wine-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.wine-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.bag-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-cream);
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.bag-icon-small {
+  font-size: 16px;
+}
+
+.your-wine-badge {
+  font-size: 11px;
+  font-weight: 400;
+  background: var(--gradient-primary);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 10px;
+  opacity: 0.9;
+}
+
+.wine-card-content {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.wine-bottle-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.wine-mystery h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.mystery-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 300;
+  font-style: italic;
+}
+
+.rating-display {
+  text-align: center;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.star {
+  font-size: 20px;
+  opacity: 0.2;
+}
+
+.star.filled {
+  opacity: 1;
+}
+
+.edit-rating-button {
+  width: 100%;
+  padding: 10px;
+  background: var(--bg-cream);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-dark);
+  transition: all 0.2s ease;
+}
+
+.edit-rating-button:hover {
+  background: var(--primary-magenta);
+  color: white;
+}
+
+.rate-button {
+  width: 100%;
+  padding: 12px;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.rate-button:hover {
+  transform: translateY(-2px);
+}
+
+.completion-banner {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  margin: 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: var(--shadow-soft);
+  text-align: center;
+}
+
+.banner-content h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.banner-content p {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.preview-button {
+  width: 100%;
+  padding: 16px;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.preview-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid var(--border-light);
+  padding: 16px 20px;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: var(--primary-magenta);
+}
+
+.nav-icon {
+  font-size: 24px;
+}
+
+.nav-label {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@media (max-width: 480px) {
+  .wines-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 16px;
+  }
+}

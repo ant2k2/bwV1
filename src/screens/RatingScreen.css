@@ -1,0 +1,254 @@
+.rating-screen-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F5F1ED 0%, #FAFAFA 50%, #F8E8F0 100%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.back-button {
+  background: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-dark);
+  box-shadow: var(--shadow-soft);
+  align-self: flex-start;
+  margin-bottom: 20px;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  transform: translateX(-4px);
+}
+
+.rating-content {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.wine-display {
+  background: white;
+  border-radius: 24px;
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 24px;
+}
+
+.wine-bottle-large {
+  font-size: 80px;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.bag-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gradient-primary);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.bag-icon-large {
+  font-size: 24px;
+}
+
+.wine-display h1 {
+  font-size: 36px;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.your-wine-indicator {
+  font-size: 14px;
+  color: var(--primary-magenta);
+  font-weight: 400;
+  margin-top: 8px;
+}
+
+.rating-section {
+  background: white;
+  border-radius: 24px;
+  padding: 36px 32px;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 24px;
+}
+
+.rating-section h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.rating-instruction {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+
+.slider-container {
+  position: relative;
+  margin-bottom: 40px;
+  padding: 20px 0;
+}
+
+.rating-slider {
+  width: 100%;
+  height: 8px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--bg-cream);
+  border-radius: 4px;
+  outline: none;
+  position: relative;
+  z-index: 2;
+}
+
+.rating-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 32px;
+  height: 32px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(199, 21, 133, 0.3);
+  transition: all 0.2s ease;
+}
+
+.rating-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(199, 21, 133, 0.4);
+}
+
+.rating-slider::-moz-range-thumb {
+  width: 32px;
+  height: 32px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 12px rgba(199, 21, 133, 0.3);
+  transition: all 0.2s ease;
+}
+
+.rating-slider::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 16px rgba(199, 21, 133, 0.4);
+}
+
+.slider-track-fill {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 8px;
+  background: var(--gradient-primary);
+  border-radius: 4px 0 0 4px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: width 0.2s ease;
+  z-index: 1;
+}
+
+.rating-display-large {
+  text-align: center;
+}
+
+.stars-large {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.star-button {
+  font-size: 40px;
+  background: none;
+  padding: 8px;
+  border-radius: 12px;
+  opacity: 0.3;
+  transition: all 0.3s ease;
+}
+
+.star-button.active {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.star-button:hover {
+  transform: scale(1.15);
+}
+
+.rating-description {
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--primary-magenta);
+  font-style: italic;
+}
+
+.save-button {
+  width: 100%;
+  padding: 20px;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(199, 21, 133, 0.3);
+  transition: all 0.3s ease;
+}
+
+.save-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.save-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.save-button.saving {
+  background: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+  .rating-content {
+    padding: 0;
+  }
+  
+  .wine-display {
+    padding: 32px 24px;
+  }
+  
+  .rating-section {
+    padding: 28px 24px;
+  }
+  
+  .stars-large {
+    gap: 8px;
+  }
+  
+  .star-button {
+    font-size: 32px;
+  }
+}

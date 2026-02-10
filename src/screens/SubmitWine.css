@@ -1,0 +1,321 @@
+.submit-wine-container {
+  min-height: 100vh;
+  background: var(--bg-white);
+}
+
+.header {
+  background: var(--gradient-primary);
+  padding: 24px 20px 32px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: var(--bg-white);
+  border-radius: 24px 24px 0 0;
+}
+
+.party-info {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.party-info h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.theme {
+  font-size: 15px;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+.content {
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.step-card {
+  background: white;
+  border-radius: 20px;
+  padding: 32px 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+}
+
+.step-number {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.step-card h2 {
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.instruction {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.bag-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.bag-button {
+  aspect-ratio: 1;
+  background: var(--bg-cream);
+  border: 2px solid var(--border-light);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.bag-button:not(:disabled):hover {
+  transform: scale(1.05);
+  border-color: var(--primary-magenta);
+}
+
+.bag-button.selected {
+  background: var(--gradient-primary);
+  border-color: var(--primary-magenta);
+  color: white;
+}
+
+.bag-button.used {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.bag-icon {
+  font-size: 24px;
+}
+
+.bag-num {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.scan-button {
+  width: 100%;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #F5F1ED 0%, #F8E8F0 100%);
+  border: 2px dashed var(--primary-magenta);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.scan-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.scan-icon {
+  font-size: 48px;
+}
+
+.scan-button span:last-child {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-dark);
+}
+
+.wine-preview {
+  background: var(--bg-cream);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.wine-icon {
+  font-size: 40px;
+  flex-shrink: 0;
+}
+
+.wine-details {
+  flex: 1;
+}
+
+.wine-details h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--text-dark);
+}
+
+.producer {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.vintage {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.change-button {
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-dark);
+  transition: all 0.2s ease;
+}
+
+.change-button:hover {
+  border-color: var(--primary-magenta);
+  color: var(--primary-magenta);
+}
+
+.submit-button {
+  width: 100%;
+  padding: 20px;
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  box-shadow: 0 4px 20px rgba(199, 21, 133, 0.3);
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Wine Selector Modal */
+.wine-selector-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: white;
+  border-radius: 24px;
+  padding: 32px 24px;
+  max-width: 400px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal-content h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: var(--text-dark);
+}
+
+.modal-instruction {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.wine-list {
+  margin-bottom: 20px;
+}
+
+.wine-option {
+  width: 100%;
+  text-align: left;
+  padding: 16px;
+  background: var(--bg-cream);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+}
+
+.wine-option:hover {
+  background: var(--primary-magenta);
+  color: white;
+  transform: translateX(4px);
+}
+
+.wine-name {
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.wine-meta {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.cancel-button {
+  width: 100%;
+  padding: 14px;
+  background: var(--bg-cream);
+  color: var(--text-dark);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+@media (max-width: 480px) {
+  .bag-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+  }
+  
+  .bag-icon {
+    font-size: 20px;
+  }
+  
+  .bag-num {
+    font-size: 14px;
+  }
+}
