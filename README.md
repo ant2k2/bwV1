@@ -1,123 +1,107 @@
-# BlindWine Guest Interface - Prototype
+# BlindWine Guest Interface - V2
 
-Modern wine party aesthetic with purple/magenta theme and thin sans-serif fonts.
+Updated prototype with Modern Wine Bar aesthetic (Option 2 colors).
 
-## 🎨 Screens Included
+## ✨ What's New
 
-1. **JoinParty** - Enter party code to join
-2. **SubmitWine** - Choose bag number & scan wine bottle
-3. **WineList** - View all wines and track rating progress
-4. **RatingScreen** - Rate wine on 1-5 scale with slider
-5. **RevealScreen** - Dramatic results reveal with podium display
+**Design Updates:**
+- Rich plum/magenta color palette (#9B1B5A, #7A1648)
+- Warm gold accents (#D4AF37) instead of harsh yellow
+- Dark, sophisticated wine bar theme
+- No more bright pink Barbie vibes
 
-## 🚀 Deployment to Vercel
+**UX Improvements:**
+- Removed "Yours" badge from WineList (cleaner)
+- Added small ✨ sparkle on RatingScreen for your wine only
+- Vertical list instead of card grid (less scrolling)
+- Tighter, more focused layouts
 
-### Prerequisites
-- GitHub account (you have: ant2k2)
-- Vercel account (connected to GitHub)
-- Your repo: `ant2k2/bwV1`
+## 📱 Screens Included
 
-### Step-by-Step Deployment
+1. **JoinParty** - Enter party code
+2. **SubmitWine** - Number grid + bottle scan
+3. **WineList** - Vertical list with progress
+4. **RatingScreen** - 1-5 stars with sparkle indicator
 
-#### 1. Upload Files to GitHub
+**NOT INCLUDED:** RevealScreen (will build with host screens)
+
+## 🚀 Deploy to Vercel
+
+### Step 1: Upload to GitHub
 
 1. Go to https://github.com/ant2k2/bwV1
-2. Click "Add file" → "Upload files"
-3. Drag and drop ALL files from this project folder
-4. Click "Commit changes"
+2. **Delete all old files first** (important!)
+3. Click "Add file" → "Upload files"
+4. Drag ALL files from blindwine-guest-v2 folder
+5. Click "Commit changes"
 
-**Files to upload:**
-- package.json
-- vite.config.js
-- index.html
-- src/ (entire folder with all files inside)
+### Step 2: Vercel Auto-Deploys
 
-#### 2. Deploy to Vercel
+Vercel will automatically detect the changes and redeploy in ~30 seconds.
 
-1. Go to https://vercel.com/new
-2. Click "Import Git Repository"
-3. Select `ant2k2/bwV1`
-4. Vercel will auto-detect React/Vite settings
-5. Click "Deploy"
-6. Wait ~60 seconds
+Your URL: https://blindwine-prototype.vercel.app (or whatever you named it)
 
-#### 3. Get Your Live URL
+## 🎨 Color Palette
 
-Vercel will give you a URL like:
-`https://blindwine-prototype.vercel.app`
+**Primary Colors:**
+- Plum: `#9B1B5A`
+- Dark Plum: `#7A1648`
+- Rose: `#B76E79`
 
-Share this with anyone to test!
+**Accent Colors:**
+- Warm Gold: `#D4AF37`
+- Soft Gold: `#C9A961`
 
-### Updating the App
+**Backgrounds:**
+- Dark: `#0f0f0f`
+- Darker: `#0a0a0a`
+
+## 🧪 Test Flow
+
+1. Open app → Type PARTY123 → Click "Pour In"
+2. Choose number 3 → Click scan → Select Erath → Click "Cork It"
+3. See wine list → Click any wine
+4. Rate with stars → Click "Save Rating"
+5. Repeat until all rated
+6. See completion message
+
+**Your Wine:** Bag #2 (Erath) has ✨ sparkle on rating screen
+
+## 📁 Project Structure
+
+```
+blindwine-guest-v2/
+├── src/
+│   ├── screens/
+│   │   ├── JoinParty.jsx/css
+│   │   ├── SubmitWine.jsx/css
+│   │   ├── WineList.jsx/css
+│   │   └── RatingScreen.jsx/css
+│   ├── App.jsx (routing + mock data)
+│   ├── main.jsx
+│   └── index.css (global styles + colors)
+├── index.html
+├── package.json
+├── vite.config.js
+└── .gitignore
+```
+
+## 🔄 Making Updates
 
 When I give you new files:
-1. Upload new files to GitHub (same process)
-2. Vercel automatically redeploys in 30 seconds
-3. Refresh your browser to see changes
+1. Replace files in GitHub
+2. Vercel auto-deploys
+3. Hard refresh browser (Cmd+Shift+R)
 
-## 📱 Testing the App
+## 📝 Feedback Format
 
-### Flow to Test:
+Reference screens by name:
+- "On **JoinParty**, the logo is too small"
+- "On **WineList**, make numbers bigger"
+- "On **RatingScreen**, sparkle too small"
+- "Change the plum color to be darker"
 
-1. **Join Party**
-   - Open URL on phone/computer
-   - Enter: PARTY123
-   - Click "Pour In"
-
-2. **Submit Your Wine**
-   - Choose any available bag (1-10)
-   - Click "Tap to Scan Barcode"
-   - Select any wine from list
-   - Click "Cork It!"
-
-3. **Wine List**
-   - See all 7 wines
-   - Your wine is marked "✨ Yours"
-   - Click any wine to rate it
-
-4. **Rate Wines**
-   - Use slider or tap stars
-   - Slide 1-5 rating
-   - Click "Save Rating"
-
-5. **View Results**
-   - Once all wines rated, click "Preview Results"
-   - See podium with top 3
-   - Scroll for complete rankings
-
-### Test with Multiple People:
-
-Everyone can open the same URL and test simultaneously!
-
-## 🎨 Design Details
-
-**Color Palette:**
-- Primary Magenta: #C71585
-- Primary Purple: #8B4789
-- Wine Red: #722F37
-- Accent Coral: #FF6B9D
-
-**Fonts:**
-- Headers: Cormorant Garamond (serif, elegant)
-- Body: Work Sans (sans-serif, thin weights)
-
-**Animations:**
-- Fade in, slide up, scale in effects
-- Staggered animations on lists
-- Smooth hover states
-- Floating bottle animations
-
-## 📋 Mock Data
-
-The app uses simulated party data:
-- Party: "Friday Night Flight"
-- Theme: "Pinot Noirs Under $30"
-- 7 wines pre-loaded
-- Bag #2 is marked as "your wine"
-
-## 🔧 Local Development (Optional)
-
-If you want to run locally:
+## ⚙️ Local Development (Optional)
 
 ```bash
 npm install
@@ -126,58 +110,23 @@ npm run dev
 
 Open http://localhost:5173
 
-## 📸 Screenshots
+## 🎯 Next Steps
 
-(Screenshots will be added in next message)
+After you approve these screens:
+1. Build Host interface (create party, manage guests, trigger reveal)
+2. Build Admin dashboard (metrics, wine data)
+3. Build RevealScreen (dramatic results with host + guest views)
+4. Connect real Firebase backend
+5. Add real barcode scanning
 
-## ✨ Features Implemented
+## 🐛 Known Limitations
 
-✅ Mobile-first responsive design
-✅ Modern wine party aesthetic
-✅ Smooth animations & transitions
-✅ Simulated barcode scanning
-✅ 1-5 star rating system
-✅ Dramatic reveal with podium
-✅ "Your wine" tracking
-✅ Progress indicators
-✅ Rating progress tracking
+- Mock data only (no real backend)
+- Simulated barcode scanning
+- No real-time party updates
+- No actual reveal functionality yet
+- Single user testing only
 
-## 🔮 Not Included (Phase 2)
+---
 
-- Real Firebase backend
-- Actual barcode scanning
-- Host controls
-- Admin dashboard
-- Wine cellar management
-- Push notifications
-- Multi-party support
-
-## 🆘 Troubleshooting
-
-**App doesn't load:**
-- Check Vercel deployment status
-- Clear browser cache
-- Try incognito mode
-
-**Looks broken on mobile:**
-- Make sure viewport meta tag is in index.html
-- Test on real device, not just dev tools
-
-**Changes not showing:**
-- Wait 30-60 seconds after GitHub upload
-- Hard refresh (Cmd+Shift+R or Ctrl+Shift+R)
-- Check Vercel deployment completed
-
-## 📝 Providing Feedback
-
-Reference screens by filename:
-- **JoinParty** = JoinParty.jsx
-- **SubmitWine** = SubmitWine.jsx
-- **WineList** = WineList.jsx
-- **RatingScreen** = RatingScreen.jsx
-- **RevealScreen** = RevealScreen.jsx
-
-Example feedback:
-"On RatingScreen, make the slider bigger"
-"On WineList, change the card background color"
-"On RevealScreen, podium too small on mobile"
+**Ready to deploy!** Upload to GitHub and test on your phone. 🍷

@@ -1,164 +1,121 @@
-.submit-wine-container {
+.submit-wine-screen {
   min-height: 100vh;
-  background: var(--bg-white);
+  background: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   background: var(--gradient-primary);
-  padding: 24px 20px 32px;
+  padding: 50px 24px 32px;
   color: white;
-  position: relative;
-  overflow: hidden;
 }
 
-.header::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background: var(--bg-white);
-  border-radius: 24px 24px 0 0;
+.party-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 
-.party-info {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-}
-
-.party-info h1 {
-  font-size: 32px;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-.theme {
-  font-size: 15px;
+.party-theme {
+  font-size: 13px;
   font-weight: 300;
   opacity: 0.9;
 }
 
 .content {
-  padding: 20px;
-  max-width: 500px;
-  margin: 0 auto;
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
 }
 
-.step-card {
-  background: white;
-  border-radius: 20px;
-  padding: 32px 24px;
-  margin-bottom: 20px;
-  box-shadow: var(--shadow-soft);
-  position: relative;
+.step-section {
+  margin-bottom: 32px;
 }
 
-.step-number {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 32px;
-  height: 32px;
-  background: var(--gradient-primary);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.step-card h2 {
-  font-size: 26px;
-  margin-bottom: 8px;
-  color: var(--text-dark);
-}
-
-.instruction {
-  font-size: 14px;
-  font-weight: 300;
+.step-label {
   color: var(--text-muted);
-  margin-bottom: 24px;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
 }
 
-.bag-grid {
+.step-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.number-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 12px;
 }
 
-.bag-button {
+.number-btn {
   aspect-ratio: 1;
-  background: var(--bg-cream);
-  border: 2px solid var(--border-light);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  transition: all 0.3s ease;
-  position: relative;
+  transition: all 0.2s ease;
 }
 
-.bag-button:not(:disabled):hover {
+.number-btn:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.08);
   transform: scale(1.05);
-  border-color: var(--primary-magenta);
 }
 
-.bag-button.selected {
-  background: var(--gradient-primary);
-  border-color: var(--primary-magenta);
-  color: white;
+.number-btn.selected {
+  background: var(--gradient-number);
+  border-color: var(--accent-rose);
 }
 
-.bag-button.used {
-  opacity: 0.3;
+.number-btn.used {
+  opacity: 0.2;
   cursor: not-allowed;
 }
 
-.bag-icon {
-  font-size: 24px;
-}
-
-.bag-num {
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.scan-button {
-  width: 100%;
-  padding: 40px 20px;
-  background: linear-gradient(135deg, #F5F1ED 0%, #F8E8F0 100%);
-  border: 2px dashed var(--primary-magenta);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+.scan-area {
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px dashed rgba(183, 110, 121, 0.3);
+  border-radius: 16px;
+  padding: 40px 24px;
+  text-align: center;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.scan-button:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-soft);
+.scan-area:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent-rose);
 }
 
 .scan-icon {
-  font-size: 48px;
+  font-size: 56px;
+  margin-bottom: 16px;
 }
 
-.scan-button span:last-child {
-  font-size: 16px;
+.scan-text {
+  color: var(--text-muted);
+  font-size: 15px;
   font-weight: 400;
-  color: var(--text-dark);
 }
 
 .wine-preview {
-  background: var(--bg-cream);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(183, 110, 121, 0.3);
   border-radius: 16px;
   padding: 20px;
   display: flex;
@@ -175,65 +132,44 @@
   flex: 1;
 }
 
-.wine-details h3 {
-  font-size: 18px;
+.wine-name {
+  color: white;
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 4px;
-  color: var(--text-dark);
 }
 
-.producer {
-  font-size: 14px;
+.wine-meta {
   color: var(--text-muted);
-  margin-bottom: 2px;
-}
-
-.vintage {
   font-size: 13px;
-  color: var(--text-muted);
 }
 
-.change-button {
-  padding: 8px 16px;
-  background: white;
-  border: 1px solid var(--border-light);
-  border-radius: 12px;
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text-dark);
-  transition: all 0.2s ease;
-}
-
-.change-button:hover {
-  border-color: var(--primary-magenta);
-  color: var(--primary-magenta);
-}
-
-.submit-button {
+.submit-btn {
   width: 100%;
-  padding: 20px;
   background: var(--gradient-primary);
+  padding: 22px;
+  border-radius: 12px;
   color: white;
-  border-radius: 16px;
-  font-size: 18px;
-  font-weight: 500;
-  box-shadow: 0 4px 20px rgba(199, 21, 133, 0.3);
+  font-size: 17px;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(155, 27, 90, 0.4);
+  margin-top: 24px;
   transition: all 0.3s ease;
 }
 
-.submit-button:hover {
+.submit-btn:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 12px 32px rgba(155, 27, 90, 0.5);
 }
 
-/* Wine Selector Modal */
-.wine-selector-modal {
+/* Scanner Modal */
+.scanner-modal {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -243,7 +179,7 @@
 }
 
 .modal-content {
-  background: white;
+  background: #1a1a1a;
   border-radius: 24px;
   padding: 32px 24px;
   max-width: 400px;
@@ -253,18 +189,19 @@
 }
 
 .modal-content h3 {
+  font-family: 'Playfair Display', serif;
   font-size: 24px;
   margin-bottom: 8px;
-  color: var(--text-dark);
+  color: white;
 }
 
-.modal-instruction {
+.modal-subtitle {
   font-size: 13px;
   color: var(--text-muted);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
-.wine-list {
+.wine-options {
   margin-bottom: 20px;
 }
 
@@ -272,50 +209,51 @@
   width: 100%;
   text-align: left;
   padding: 16px;
-  background: var(--bg-cream);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   margin-bottom: 8px;
   transition: all 0.2s ease;
+  color: white;
 }
 
 .wine-option:hover {
-  background: var(--primary-magenta);
-  color: white;
+  background: var(--accent-rose);
+  border-color: var(--accent-rose);
   transform: translateX(4px);
 }
 
-.wine-name {
+.option-name {
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 4px;
 }
 
-.wine-meta {
+.option-meta {
   font-size: 13px;
   opacity: 0.8;
 }
 
-.cancel-button {
+.cancel-btn {
   width: 100%;
   padding: 14px;
-  background: var(--bg-cream);
-  color: var(--text-dark);
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
   border-radius: 12px;
   font-size: 15px;
-  font-weight: 400;
+  transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
 
 @media (max-width: 480px) {
-  .bag-grid {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
+  .number-grid {
+    gap: 10px;
   }
   
-  .bag-icon {
-    font-size: 20px;
-  }
-  
-  .bag-num {
-    font-size: 14px;
+  .number-btn {
+    font-size: 24px;
   }
 }

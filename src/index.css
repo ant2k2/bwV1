@@ -1,20 +1,24 @@
 :root {
-  /* Modern Wine Party Color Palette */
-  --primary-magenta: #C71585;
-  --primary-purple: #8B4789;
-  --wine-red: #722F37;
-  --accent-coral: #FF6B9D;
-  --bg-white: #FAFAFA;
-  --bg-cream: #F5F1ED;
-  --text-dark: #2D2D2D;
-  --text-muted: #6B6B6B;
-  --border-light: #E8E8E8;
+  /* Option 2: Modern Wine Bar Colors */
+  --primary-plum: #9B1B5A;
+  --primary-dark: #7A1648;
+  --accent-rose: #B76E79;
+  --accent-gold: #D4AF37;
+  --accent-warm-gold: #C9A961;
   
-  /* Shadows & Effects */
-  --shadow-soft: 0 2px 20px rgba(199, 21, 133, 0.08);
-  --shadow-hover: 0 4px 30px rgba(199, 21, 133, 0.15);
-  --gradient-primary: linear-gradient(135deg, var(--primary-magenta) 0%, var(--primary-purple) 100%);
-  --gradient-subtle: linear-gradient(180deg, rgba(245, 241, 237, 0) 0%, rgba(245, 241, 237, 1) 100%);
+  --bg-dark: #0f0f0f;
+  --bg-darker: #0a0a0a;
+  --text-white: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.6);
+  
+  /* Shadows */
+  --shadow-soft: 0 4px 20px rgba(155, 27, 90, 0.2);
+  --shadow-hover: 0 8px 30px rgba(155, 27, 90, 0.3);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #9B1B5A 0%, #7A1648 100%);
+  --gradient-number: linear-gradient(135deg, #B76E79 0%, #9B1B5A 100%);
+  --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #C9A961 100%);
 }
 
 * {
@@ -24,29 +28,29 @@
 }
 
 body {
-  font-family: 'Work Sans', sans-serif;
-  font-weight: 300;
-  background: var(--bg-white);
-  color: var(--text-dark);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  background: var(--bg-darker);
+  color: var(--text-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 }
 
 button {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   cursor: pointer;
   border: none;
   outline: none;
 }
 
 input {
-  font-family: 'Work Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   outline: none;
 }
 
@@ -73,15 +77,9 @@ input {
   }
 }
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
 .fade-in {
@@ -92,14 +90,10 @@ input {
   animation: slideUp 0.5s ease-out forwards;
 }
 
-.scale-in {
-  animation: scaleIn 0.3s ease-out forwards;
-}
-
-/* Stagger delays for list items */
-.stagger-1 { animation-delay: 0.1s; opacity: 0; }
-.stagger-2 { animation-delay: 0.2s; opacity: 0; }
-.stagger-3 { animation-delay: 0.3s; opacity: 0; }
-.stagger-4 { animation-delay: 0.4s; opacity: 0; }
-.stagger-5 { animation-delay: 0.5s; opacity: 0; }
-.stagger-6 { animation-delay: 0.6s; opacity: 0; }
+/* Stagger delays */
+.stagger-1 { animation-delay: 0.05s; opacity: 0; }
+.stagger-2 { animation-delay: 0.1s; opacity: 0; }
+.stagger-3 { animation-delay: 0.15s; opacity: 0; }
+.stagger-4 { animation-delay: 0.2s; opacity: 0; }
+.stagger-5 { animation-delay: 0.25s; opacity: 0; }
+.stagger-6 { animation-delay: 0.3s; opacity: 0; }

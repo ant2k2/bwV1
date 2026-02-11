@@ -1,31 +1,26 @@
-.join-party-container {
+.join-party-screen {
   min-height: 100vh;
-  background: linear-gradient(135deg, #F5F1ED 0%, #FAFAFA 50%, #F8E8F0 100%);
+  background: linear-gradient(165deg, #1a0a14 0%, #3d1a2e 50%, #1a0a14 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 40px 24px;
   position: relative;
   overflow: hidden;
 }
 
-.background-decoration {
+.wine-stain {
   position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(199, 21, 133, 0.08) 0%, transparent 70%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(155, 27, 90, 0.15) 0%, transparent 70%);
   border-radius: 50%;
-  animation: float 20s ease-in-out infinite;
+  top: -150px;
+  right: -150px;
+  filter: blur(60px);
 }
 
-@keyframes float {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(-30px, 30px); }
-}
-
-.content {
+.join-content {
   width: 100%;
   max-width: 400px;
   position: relative;
@@ -34,134 +29,115 @@
 
 .logo-section {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
-.wine-glass-icon {
-  font-size: 64px;
-  margin-bottom: 16px;
-  animation: fadeIn 0.6s ease-out;
+.wine-icon {
+  font-size: 80px;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
 }
 
-.app-title {
+.brand-title {
+  font-family: 'Playfair Display', serif;
   font-size: 56px;
-  font-weight: 600;
-  background: var(--gradient-primary);
+  font-weight: 900;
+  background: var(--gradient-number);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   letter-spacing: -1px;
 }
 
 .tagline {
-  font-size: 16px;
-  font-weight: 300;
   color: var(--text-muted);
-  letter-spacing: 2px;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 3px;
   text-transform: uppercase;
 }
 
-.join-card {
-  background: white;
-  border-radius: 24px;
-  padding: 40px 32px;
-  box-shadow: var(--shadow-soft);
-  margin-bottom: 32px;
-}
-
-.join-card h2 {
-  font-size: 32px;
-  margin-bottom: 8px;
-  color: var(--text-dark);
-}
-
-.instruction {
-  font-size: 15px;
-  font-weight: 300;
-  color: var(--text-muted);
-  margin-bottom: 32px;
-}
-
-.party-code-input {
+.join-form {
   width: 100%;
-  padding: 18px 20px;
-  font-size: 18px;
+}
+
+.input-label {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
   font-weight: 400;
-  border: 2px solid var(--border-light);
-  border-radius: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.party-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(183, 110, 121, 0.3);
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 4px;
   margin-bottom: 20px;
   transition: all 0.3s ease;
-  text-align: center;
+}
+
+.party-input:focus {
+  border-color: var(--accent-rose);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(183, 110, 121, 0.1);
+}
+
+.party-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
   letter-spacing: 2px;
 }
 
-.party-code-input:focus {
-  border-color: var(--primary-magenta);
-  box-shadow: 0 0 0 4px rgba(199, 21, 133, 0.1);
-}
-
-.party-code-input::placeholder {
-  color: #CCC;
-  letter-spacing: 1px;
-}
-
-.primary-button {
+.join-button {
   width: 100%;
-  padding: 18px;
-  font-size: 17px;
-  font-weight: 500;
   background: var(--gradient-primary);
+  padding: 22px;
+  border-radius: 12px;
   color: white;
-  border-radius: 16px;
+  font-size: 17px;
+  font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(199, 21, 133, 0.2);
+  box-shadow: 0 8px 24px rgba(155, 27, 90, 0.4);
 }
 
-.primary-button:hover:not(:disabled) {
+.join-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 12px 32px rgba(155, 27, 90, 0.5);
 }
 
-.primary-button:active:not(:disabled) {
+.join-button:active:not(:disabled) {
   transform: translateY(0);
 }
 
-.primary-button:disabled {
+.join-button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
-.demo-hint {
+.hint {
   text-align: center;
   margin-top: 16px;
-  color: var(--text-muted);
-  font-size: 13px;
-}
-
-.feature-pills {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.pill {
-  background: white;
-  padding: 10px 20px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--text-dark);
-  box-shadow: var(--shadow-soft);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  font-weight: 300;
 }
 
 @media (max-width: 480px) {
-  .app-title {
+  .brand-title {
     font-size: 48px;
   }
   
-  .join-card {
-    padding: 32px 24px;
+  .wine-icon {
+    font-size: 64px;
   }
 }

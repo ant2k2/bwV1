@@ -12,47 +12,45 @@ function JoinParty() {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && partyCode.trim()) {
+      handleJoin();
+    }
+  };
+
   return (
-    <div className="join-party-container">
-      <div className="background-decoration"></div>
+    <div className="join-party-screen">
+      <div className="wine-stain"></div>
       
-      <div className="content fade-in">
-        <div className="logo-section">
-          <div className="wine-glass-icon">🍷</div>
-          <h1 className="app-title">BlindWine</h1>
-          <p className="tagline">Taste. Rate. Reveal.</p>
+      <div className="join-content">
+        <div className="logo-section fade-in">
+          <div className="wine-icon">🍷</div>
+          <h1 className="brand-title">BlindWine</h1>
+          <p className="tagline">Taste • Rate • Reveal</p>
         </div>
 
-        <div className="join-card slide-up">
-          <h2>Join a Party</h2>
-          <p className="instruction">Enter your party code to get started</p>
-          
+        <div className="join-form slide-up">
+          <label className="input-label">Party Code</label>
           <input
             type="text"
-            className="party-code-input"
-            placeholder="PARTY123"
+            className="party-input"
+            placeholder="ABC123"
             value={partyCode}
             onChange={(e) => setPartyCode(e.target.value.toUpperCase())}
+            onKeyPress={handleKeyPress}
             maxLength={10}
+            autoFocus
           />
-
+          
           <button 
-            className="primary-button"
+            className="join-button"
             onClick={handleJoin}
             disabled={!partyCode.trim()}
           >
-            Pour In
+            Pour In 🍾
           </button>
-
-          <div className="demo-hint">
-            <small>Demo Code: PARTY123</small>
-          </div>
-        </div>
-
-        <div className="feature-pills">
-          <div className="pill stagger-1 fade-in">🎭 Anonymous Tasting</div>
-          <div className="pill stagger-2 fade-in">⭐ Rate & Compare</div>
-          <div className="pill stagger-3 fade-in">🏆 See the Winner</div>
+          
+          <div className="hint">Try: PARTY123</div>
         </div>
       </div>
     </div>
