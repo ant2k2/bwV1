@@ -33,7 +33,6 @@ function RatingScreen() {
 
       <div className="rating-content">
         <div className="wine-display">
-          <div className="bottle-icon">🍷</div>
           <div className={`wine-number-display ${wine?.isYourWine ? 'yours' : ''}`}>
             {bagNumber}
           </div>

@@ -47,7 +47,7 @@ function JoinParty() {
             onClick={handleJoin}
             disabled={!partyCode.trim()}
           >
-            Pour In 🍾
+            Pour In
           </button>
           
           <div className="hint">Try: PARTY123</div>

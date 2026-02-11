@@ -91,7 +91,7 @@ function SubmitWine() {
 
         {selectedNumber && selectedWine && (
           <button className="submit-btn slide-up" onClick={handleSubmit}>
-            Cork It 🍾
+            Cork It
           </button>
         )}
       </div>
