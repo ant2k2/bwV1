@@ -1,14 +1,22 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useParty } from '../context/PartyContext';
 import './JoinParty.css';
 
 function JoinParty() {
   const navigate = useNavigate();
+  const { joinParty, user } = useParty();
   const [partyCode, setPartyCode] = useState('');
+  const [error, setError] = useState('');
 
   const handleJoin = () => {
     if (partyCode.trim()) {
-      navigate('/submit-wine');
+      const success = joinParty(partyCode.trim().toUpperCase(), user.name);
+      if (success) {
+        navigate(`/guest/submit/${partyCode.trim().toUpperCase()}`);
+      } else {
+        setError('Party not found');
+      }
     }
   };
 
@@ -20,6 +28,11 @@ function JoinParty() {
 
   return (
     <div className="join-party-screen">
+      <div className="simple-header">
+        <div className="header-spacer"></div>
+        <div className="header-user">{user?.name}</div>
+      </div>
+      
       <div className="wine-stain"></div>
       
       <div className="join-content">
@@ -36,11 +49,13 @@ function JoinParty() {
             className="party-input"
             placeholder="ABC123"
             value={partyCode}
-            onChange={(e) => setPartyCode(e.target.value.toUpperCase())}
+            onChange={(e) => { setPartyCode(e.target.value.toUpperCase()); setError(''); }}
             onKeyPress={handleKeyPress}
             maxLength={10}
             autoFocus
           />
+          
+          {error && <div className="error-message">{error}</div>}
           
           <button 
             className="join-button"
@@ -49,8 +64,6 @@ function JoinParty() {
           >
             Pour In
           </button>
-          
-          <div className="hint">Try: PARTY123</div>
         </div>
       </div>
     </div>

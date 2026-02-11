@@ -1,132 +1,181 @@
-# BlindWine Guest Interface - V2
+# BlindWine - Full App (Host + Guest)
 
-Updated prototype with Modern Wine Bar aesthetic (Option 2 colors).
+Complete BlindWine application with both host and guest flows, state management, and multi-tab testing support.
 
 ## ✨ What's New
 
-**Design Updates:**
-- Rich plum/magenta color palette (#9B1B5A, #7A1648)
-- Warm gold accents (#D4AF37) instead of harsh yellow
-- Dark, sophisticated wine bar theme
-- No more bright pink Barbie vibes
+**Complete System:**
+- Login/authentication system (mock)
+- Host flow (create party, manage, reveal results)
+- Guest flow (join party, submit wine, rate, wait for reveal)
+- Real-time state sync across browser tabs
+- Username display in headers
+- Party code system
 
-**UX Improvements:**
-- Removed "Yours" badge from WineList (cleaner)
-- Added small ✨ sparkle on RatingScreen for your wine only
-- Vertical list instead of card grid (less scrolling)
-- Tighter, more focused layouts
+**State Management:**
+- Uses React Context + localStorage
+- Syncs between tabs automatically
+- Persists across page refreshes
 
-## 📱 Screens Included
+## 📱 Complete Flow
 
-1. **JoinParty** - Enter party code
-2. **SubmitWine** - Number grid + bottle scan
-3. **WineList** - Vertical list with progress
-4. **RatingScreen** - 1-5 stars with sparkle indicator
+### Host Journey:
+1. Login → Choose "Host" → Enter name (e.g., "Sara")
+2. Create Party → Enter party name & theme
+3. Get Party Code → Share with guests
+4. Dashboard → See guests join, wines submitted
+5. Start Party → Guests can now rate
+6. Close Party → View reveal screen with results
 
-**NOT INCLUDED:** RevealScreen (will build with host screens)
+### Guest Journey:
+1. Login → Choose "Guest" → Enter name (e.g., "Jim")
+2. Join Party → Enter party code
+3. Submit Wine → Choose bag number, scan bottle
+4. Rate Wines → Rate all wines 1-5 stars
+5. Wait → Host closes party
+6. (Future: See results)
 
-## 🚀 Deploy to Vercel
+## 🧪 Testing Both Flows Simultaneously
 
-### Step 1: Upload to GitHub
+**Setup:**
+1. Upload to GitHub
+2. Deploy to Vercel
+3. Open in TWO different browsers (or incognito + normal)
 
-1. Go to https://github.com/ant2k2/bwV1
-2. **Delete all old files first** (important!)
-3. Click "Add file" → "Upload files"
-4. Drag ALL files from blindwine-guest-v2 folder
-5. Click "Commit changes"
+**Tab 1 - Host:**
+- Open app
+- Login as "Sara" (Host)
+- Create party "Friday Night Flight"
+- Note the party code (e.g., "ABC123")
 
-### Step 2: Vercel Auto-Deploys
+**Tab 2 - Guest:**
+- Open app in different browser
+- Login as "Jim" (Guest)
+- Enter party code "ABC123"
+- Submit wine to bag #2
+- Rate wines
 
-Vercel will automatically detect the changes and redeploy in ~30 seconds.
+**Tab 1 - Host:**
+- Refresh to see Jim joined
+- See wine #2 submitted
+- Start party
+- Close party & reveal
 
-Your URL: https://blindwine-prototype.vercel.app (or whatever you named it)
+**Watch the magic:**
+- Changes in one tab update the other
+- Real-time party state sync
+- Works across devices too!
 
-## 🎨 Color Palette
+## 🎨 Design System
 
-**Primary Colors:**
-- Plum: `#9B1B5A`
-- Dark Plum: `#7A1648`
-- Rose: `#B76E79`
-
-**Accent Colors:**
-- Warm Gold: `#D4AF37`
-- Soft Gold: `#C9A961`
-
-**Backgrounds:**
-- Dark: `#0f0f0f`
-- Darker: `#0a0a0a`
-
-## 🧪 Test Flow
-
-1. Open app → Type PARTY123 → Click "Pour In"
-2. Choose number 3 → Click scan → Select Erath → Click "Cork It"
-3. See wine list → Click any wine
-4. Rate with stars → Click "Save Rating"
-5. Repeat until all rated
-6. See completion message
-
-**Your Wine:** Bag #2 (Erath) has ✨ sparkle on rating screen
+Same Modern Wine Bar palette:
+- Primary: `#9B1B5A`, `#7A1648`
+- Accent: `#B76E79`, `#D4AF37`
+- Minimal icons
+- Clean typography
 
 ## 📁 Project Structure
 
 ```
-blindwine-guest-v2/
+blindwine-full/
 ├── src/
+│   ├── context/
+│   │   └── PartyContext.jsx (state management)
+│   ├── components/
+│   │   └── Header.jsx (reusable header)
 │   ├── screens/
-│   │   ├── JoinParty.jsx/css
-│   │   ├── SubmitWine.jsx/css
-│   │   ├── WineList.jsx/css
-│   │   └── RatingScreen.jsx/css
-│   ├── App.jsx (routing + mock data)
+│   │   ├── Login.jsx
+│   │   ├── CreateParty.jsx (host)
+│   │   ├── HostDashboard.jsx (host)
+│   │   ├── HostReveal.jsx (host)
+│   │   ├── JoinParty.jsx (guest)
+│   │   ├── SubmitWine.jsx (guest)
+│   │   ├── WineList.jsx (guest)
+│   │   └── RatingScreen.jsx (guest)
+│   ├── App.jsx (routing)
 │   ├── main.jsx
-│   └── index.css (global styles + colors)
+│   └── index.css (global styles)
 ├── index.html
 ├── package.json
-├── vite.config.js
-└── .gitignore
+└── vite.config.js
 ```
 
-## 🔄 Making Updates
+## 🚀 Deploy to Vercel
 
-When I give you new files:
-1. Replace files in GitHub
-2. Vercel auto-deploys
-3. Hard refresh browser (Cmd+Shift+R)
+1. Delete old files in GitHub repo
+2. Upload all files from `blindwine-full` folder
+3. Commit changes
+4. Vercel auto-deploys in ~30 seconds
 
-## 📝 Feedback Format
+## 💾 How State Works
 
-Reference screens by name:
-- "On **JoinParty**, the logo is too small"
-- "On **WineList**, make numbers bigger"
-- "On **RatingScreen**, sparkle too small"
-- "Change the plum color to be darker"
+**PartyContext:**
+- Stores all party data in localStorage
+- Broadcasts changes via `storage` event
+- Other tabs listen and update automatically
+- Persists even after page refresh
 
-## ⚙️ Local Development (Optional)
-
-```bash
-npm install
-npm run dev
+**Data Structure:**
+```javascript
+{
+  "ABC123": {
+    code: "ABC123",
+    name: "Friday Night Flight",
+    theme: "Pinot Noirs Under $30",
+    hostName: "Sara",
+    status: "waiting" | "active" | "closed",
+    guests: [{ name: "Jim", joinedAt: timestamp }],
+    wines: [{
+      bagNumber: 2,
+      name: "Erath Pinot Noir",
+      producer: "Erath",
+      submittedBy: "Jim",
+      ratings: [{ guestName: "Jim", rating: 4 }]
+    }]
+  }
+}
 ```
 
-Open http://localhost:5173
+## 🎯 Key Features
 
-## 🎯 Next Steps
+✅ Login with name + role selection
+✅ Username in header (all screens)
+✅ Party code generation
+✅ Guest list tracking
+✅ Wine submission tracking
+✅ Rating system (1-5 stars)
+✅ Sparkle indicator for your wine
+✅ Party status management
+✅ Results reveal with podium
+✅ Multi-tab real-time sync
 
-After you approve these screens:
-1. Build Host interface (create party, manage guests, trigger reveal)
-2. Build Admin dashboard (metrics, wine data)
-3. Build RevealScreen (dramatic results with host + guest views)
-4. Connect real Firebase backend
-5. Add real barcode scanning
+## 🔄 Limitations (Prototype)
 
-## 🐛 Known Limitations
-
-- Mock data only (no real backend)
+- Mock authentication (no passwords)
+- localStorage only (not true backend)
 - Simulated barcode scanning
-- No real-time party updates
-- No actual reveal functionality yet
-- Single user testing only
+- No actual wine data from APIs
+- Single device testing requires multiple browsers
+- No persistence across devices (yet)
+
+## 📝 Next Steps
+
+After testing:
+1. Add guest reveal screen
+2. Connect real Firebase backend
+3. Add real barcode scanning
+4. Implement Clerk authentication
+5. Add push notifications
+6. Build admin dashboard
+7. Port to React Native
+
+## 🐛 Known Issues
+
+- Must use different browsers for multi-user testing
+- localStorage clears if you clear browser data
+- No error handling for network issues
+- No loading states during sync
 
 ---
 
-**Ready to deploy!** Upload to GitHub and test on your phone. 🍷
+**Ready to test!** Deploy and open in two browsers to see the full experience. 🍷

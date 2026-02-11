@@ -1,0 +1,55 @@
+.app-header {
+  background: var(--gradient-primary);
+  padding: 50px 24px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.header-party-info {
+  flex: 1;
+}
+
+.header-party-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.header-party-theme {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.header-spacer {
+  flex: 1;
+}
+
+.header-user {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .app-header {
+    padding: 40px 20px 24px;
+  }
+  
+  .header-party-name {
+    font-size: 22px;
+  }
+  
+  .header-user {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

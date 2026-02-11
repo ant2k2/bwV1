@@ -1,0 +1,207 @@
+.host-reveal-screen {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #1a0514 0%, var(--bg-dark) 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.reveal-content {
+  flex: 1;
+  padding: 40px 24px;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.reveal-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.reveal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+}
+
+.podium {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 56px;
+  padding: 0 16px;
+}
+
+.podium-place {
+  flex: 1;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 24px 16px;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.podium-place.first {
+  order: 2;
+  padding: 32px 16px;
+  border-color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+.podium-place.second {
+  order: 1;
+  opacity: 0.9;
+}
+
+.podium-place.third {
+  order: 3;
+  opacity: 0.85;
+}
+
+.medal {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.podium-place.first .medal {
+  font-size: 56px;
+}
+
+.rank-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  background: var(--gradient-number);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.podium-place.first .rank-number {
+  font-size: 64px;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.wine-details {
+  margin-top: 12px;
+}
+
+.wine-by {
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.score {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 12px;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.podium-place.first .score {
+  background: var(--gradient-gold);
+  color: #000;
+  font-size: 20px;
+}
+
+.rankings-section {
+  margin-top: 40px;
+}
+
+.rankings-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.ranking-item {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  border-left: 3px solid rgba(183, 110, 121, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.rank {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+  min-width: 50px;
+  text-align: center;
+}
+
+.ranking-wine-info {
+  flex: 1;
+}
+
+.ranking-wine-name {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.ranking-wine-meta {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.ranking-score {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  min-width: 60px;
+  text-align: right;
+}
+
+@media (max-width: 480px) {
+  .reveal-title {
+    font-size: 28px;
+  }
+  
+  .podium {
+    gap: 12px;
+  }
+  
+  .podium-place {
+    padding: 20px 12px;
+  }
+  
+  .podium-place.first {
+    padding: 28px 12px;
+  }
+  
+  .rank-number {
+    font-size: 40px;
+  }
+  
+  .podium-place.first .rank-number {
+    font-size: 56px;
+  }
+  
+  .medal {
+    font-size: 32px;
+  }
+  
+  .podium-place.first .medal {
+    font-size: 44px;
+  }
+}

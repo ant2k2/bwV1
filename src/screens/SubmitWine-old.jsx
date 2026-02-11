@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useParty } from '../context/PartyContext';
-import Header from '../components/Header';
+import { useNavigate } from 'react-router-dom';
+import { mockPartyData } from '../App';
 import './SubmitWine.css';
 
 const wineDatabase = [
@@ -13,22 +12,21 @@ const wineDatabase = [
 ];
 
 function SubmitWine() {
-  const { code } = useParams();
   const navigate = useNavigate();
-  const { getParty, submitWine, user } = useParty();
   const [selectedNumber, setSelectedNumber] = useState(null);
   const [selectedWine, setSelectedWine] = useState(null);
   const [showScanner, setShowScanner] = useState(false);
 
-  const party = getParty(code);
-  if (!party) return <div>Party not found</div>;
-
-  const usedNumbers = party.wines.map(w => w.bagNumber);
+  const usedNumbers = mockPartyData.wines.map(w => w.bagNumber);
 
   const handleNumberSelect = (num) => {
     if (!usedNumbers.includes(num)) {
       setSelectedNumber(num);
     }
+  };
+
+  const handleScan = () => {
+    setShowScanner(true);
   };
 
   const handleWineSelect = (wine) => {
@@ -38,14 +36,16 @@ function SubmitWine() {
 
   const handleSubmit = () => {
     if (selectedNumber && selectedWine) {
-      submitWine(code, user.name, selectedNumber, selectedWine);
-      navigate(`/guest/wines/${code}`);
+      navigate('/wine-list');
     }
   };
 
   return (
     <div className="submit-wine-screen">
-      <Header partyName={party.name} partyTheme={party.theme} />
+      <div className="header">
+        <h2 className="party-name">{mockPartyData.partyName}</h2>
+        <p className="party-theme">{mockPartyData.partyTheme}</p>
+      </div>
 
       <div className="content">
         <div className="step-section">
@@ -71,7 +71,7 @@ function SubmitWine() {
             <h3 className="step-title">Scan Your Bottle</h3>
             
             {!selectedWine ? (
-              <div className="scan-area" onClick={() => setShowScanner(true)}>
+              <div className="scan-area" onClick={handleScan}>
                 <div className="scan-icon">📷</div>
                 <div className="scan-text">Tap to Scan Barcode</div>
               </div>

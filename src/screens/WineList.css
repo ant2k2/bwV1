@@ -151,3 +151,7 @@
     min-width: 50px;
   }
 }
+
+.progress-section {
+  padding: 16px 16px 0;
+}

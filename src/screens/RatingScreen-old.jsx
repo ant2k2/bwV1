@@ -1,30 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { useParty } from '../context/PartyContext';
+import { mockPartyData } from '../App';
 import './RatingScreen.css';
 
 function RatingScreen() {
-  const { code, bagNumber } = useParams();
+  const { bagNumber } = useParams();
   const navigate = useNavigate();
-  const { getParty, rateWine, user } = useParty();
-  const [rating, setRating] = useState(3);
+  const wine = mockPartyData.wines.find(w => w.bagNumber === parseInt(bagNumber));
+  const [rating, setRating] = useState(wine?.userRating || 3);
   const [isSaving, setIsSaving] = useState(false);
-
-  const party = getParty(code);
-  if (!party) return <div>Party not found</div>;
-
-  const wine = party.wines.find(w => w.bagNumber === parseInt(bagNumber));
-  if (!wine) return <div>Wine not found</div>;
-
-  // Load existing rating
-  useEffect(() => {
-    const existingRating = wine.ratings.find(r => r.guestName === user.name);
-    if (existingRating) {
-      setRating(existingRating.rating);
-    }
-  }, [wine, user]);
-
-  const isYourWine = wine.submittedBy === user.name;
 
   const ratingDescriptions = {
     1: "Not my style",
@@ -36,21 +20,20 @@ function RatingScreen() {
 
   const handleSave = () => {
     setIsSaving(true);
-    rateWine(code, user.name, parseInt(bagNumber), rating);
     setTimeout(() => {
-      navigate(`/guest/wines/${code}`);
-    }, 300);
+      navigate('/wine-list');
+    }, 500);
   };
 
   return (
     <div className="rating-screen">
-      <button className="back-btn" onClick={() => navigate(`/guest/wines/${code}`)}>
+      <button className="back-btn" onClick={() => navigate('/wine-list')}>
         ←
       </button>
 
       <div className="rating-content">
         <div className="wine-display">
-          <div className={`wine-number-display ${isYourWine ? 'yours' : ''}`}>
+          <div className={`wine-number-display ${wine?.isYourWine ? 'yours' : ''}`}>
             {bagNumber}
           </div>
         </div>

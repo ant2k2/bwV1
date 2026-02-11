@@ -1,0 +1,127 @@
+.create-party-screen {
+  min-height: 100vh;
+  background: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+.simple-header {
+  background: var(--gradient-primary);
+  padding: 50px 24px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-spacer {
+  flex: 1;
+}
+
+.header-user {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+}
+
+.create-content {
+  flex: 1;
+  padding: 40px 24px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.create-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.create-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.create-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  font-weight: 300;
+}
+
+.create-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.form-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(183, 110, 121, 0.3);
+  padding: 18px;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: var(--accent-rose);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(183, 110, 121, 0.1);
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.create-btn {
+  width: 100%;
+  background: var(--gradient-primary);
+  padding: 22px;
+  border-radius: 12px;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(155, 27, 90, 0.4);
+}
+
+.create-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(155, 27, 90, 0.5);
+}
+
+.create-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .create-title {
+    font-size: 32px;
+  }
+  
+  .create-content {
+    padding: 32px 20px;
+  }
+}

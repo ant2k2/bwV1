@@ -1,0 +1,163 @@
+.login-screen {
+  min-height: 100vh;
+  background: linear-gradient(165deg, #1a0a14 0%, #3d1a2e 50%, #1a0a14 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.login-content {
+  width: 100%;
+  max-width: 400px;
+}
+
+.logo-section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.wine-icon {
+  font-size: 120px;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.brand-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  font-weight: 900;
+  background: var(--gradient-number);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+}
+
+.tagline {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.login-form {
+  width: 100%;
+}
+
+.input-label {
+  display: block;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.name-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(183, 110, 121, 0.3);
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 32px;
+  transition: all 0.3s ease;
+}
+
+.name-input:focus {
+  border-color: var(--accent-rose);
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(183, 110, 121, 0.1);
+}
+
+.name-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.role-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.role-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  padding: 24px 16px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.role-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.role-btn.selected {
+  background: var(--gradient-number);
+  border-color: var(--accent-rose);
+}
+
+.role-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 6px;
+}
+
+.role-desc {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.role-btn.selected .role-desc {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.continue-btn {
+  width: 100%;
+  background: var(--gradient-primary);
+  padding: 22px;
+  border-radius: 12px;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(155, 27, 90, 0.4);
+}
+
+.continue-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(155, 27, 90, 0.5);
+}
+
+.continue-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .brand-title {
+    font-size: 48px;
+  }
+  
+  .wine-icon {
+    font-size: 100px;
+  }
+  
+  .role-selector {
+    gap: 12px;
+  }
+  
+  .role-btn {
+    padding: 20px 12px;
+  }
+}
