@@ -56,8 +56,8 @@
 }
 
 .wine-item.yours {
-  border-left-color: var(--accent-gold);
-  background: rgba(212, 175, 55, 0.08);
+  border-left-color: rgba(212, 175, 55, 0.4);
+  background: rgba(212, 175, 55, 0.03);
 }
 
 .wine-number {

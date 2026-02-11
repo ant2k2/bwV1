@@ -13,10 +13,6 @@ function WineList() {
     navigate(`/rate/${bagNumber}`);
   };
 
-  const handleItemClick = (wine) => {
-    handleRateWine(wine.bagNumber);
-  };
-
   return (
     <div className="wine-list-screen">
       <div className="header">
@@ -33,7 +29,7 @@ function WineList() {
           <div
             key={wine.bagNumber}
             className={`wine-item ${wine.rated ? 'rated' : ''} ${wine.isYourWine ? 'yours' : ''} fade-in stagger-${idx % 6 + 1}`}
-            onClick={() => handleItemClick(wine)}
+            onClick={() => handleRateWine(wine.bagNumber)}
           >
             <div className="wine-number">{wine.bagNumber}</div>
             <div className="wine-info">
