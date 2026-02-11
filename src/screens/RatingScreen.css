@@ -31,7 +31,7 @@
   justify-content: center;
   max-width: 500px;
   width: 100%;
-  margin: 0 auto;
+  margin: -50px auto 0;
 }
 
 .wine-display {
@@ -41,7 +41,7 @@
 
 .wine-number-display {
   font-family: 'Playfair Display', serif;
-  font-size: 96px;
+  font-size: 120px;
   font-weight: 900;
   background: var(--gradient-number);
   -webkit-background-clip: text;
@@ -55,9 +55,9 @@
 .wine-number-display.yours::after {
   content: '✨';
   position: absolute;
-  right: -35px;
-  top: 5px;
-  font-size: 28px;
+  right: -40px;
+  top: 8px;
+  font-size: 32px;
   filter: none;
   -webkit-text-fill-color: initial;
 }
@@ -139,12 +139,12 @@
 
 @media (max-width: 480px) {
   .wine-number-display {
-    font-size: 80px;
+    font-size: 100px;
   }
   
   .wine-number-display.yours::after {
-    right: -30px;
-    font-size: 24px;
+    right: -35px;
+    font-size: 28px;
   }
   
   .stars-container {

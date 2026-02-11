@@ -77,7 +77,6 @@ function SubmitWine() {
               </div>
             ) : (
               <div className="wine-preview">
-                <div className="wine-icon">🍷</div>
                 <div className="wine-details">
                   <div className="wine-name">{selectedWine.name}</div>
                   <div className="wine-meta">
